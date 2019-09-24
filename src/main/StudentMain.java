@@ -1,5 +1,6 @@
 package main;
 
+import customexception.InvalidStudentException;
 import student.Student;
 
 import java.util.Scanner;
@@ -27,12 +28,19 @@ public class StudentMain {
             System.out.println("enter cpi");
             list[i].setCpi(sc.nextDouble());
             sc.nextLine();
+            StudentMain obj = new StudentMain();
+            try {
+                Student found = obj.search(list, 99);
+            }
+            catch (InvalidStudentException e){
+                System.out.println(e.getMessage());
+            }
 
         }
 
 
     }
-    public Student search(Student[] list, int rollNo){
+    public Student search(Student[] list, int rollNo) throws InvalidStudentException {
         return null;
     }
 }
