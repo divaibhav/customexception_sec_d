@@ -28,9 +28,14 @@ public class StudentMain {
             System.out.println("enter cpi");
             list[i].setCpi(sc.nextDouble());
             sc.nextLine();
+        }
             StudentMain obj = new StudentMain();
             try {
-                Student found = obj.search(list, 99);
+                Student found = obj.search(list, 12);
+                if(found != null){
+                    System.out.println(found);
+
+                }
             }
             catch (InvalidStudentException e){
                 System.out.println(e.getMessage());
@@ -39,8 +44,34 @@ public class StudentMain {
         }
 
 
-    }
+
+
+    /***
+     * @apiNote this method search for the given rollNo in the list
+     * @param list
+     * @param rollNo
+     * @return Student object
+     * @throws InvalidStudentException
+     */
     public Student search(Student[] list, int rollNo) throws InvalidStudentException {
-        return null;
+        Student response = null;
+
+        // define search function if found assign that obj to response
+        for (Student student : list) {
+            if(student.getRollNo() == rollNo){
+                response = student;
+                break;
+            }
+        }
+
+
+        // checking if response is null,
+        // if null that means no student found and an exception will be
+        // thrown
+        if(response ==null){
+            InvalidStudentException e = new InvalidStudentException("Student not found");
+            throw e;
+        }
+        return response;
     }
 }
