@@ -28,10 +28,14 @@ public class Student {
     public void setCpi(double cpi) {
         this.cpi = cpi;
     }
-    @Override
+   @Override
     public String toString(){
         return "Student [\nName =\t" + name +"\nRollNo =\t" +
-                rollNo + "CPI =\t" + cpi + "\n]";
+                rollNo + "\nCPI =\t" + cpi + "\n]";
 
     }
+
+
+
+
 }
